@@ -13,7 +13,9 @@ baby_names['name'] = baby_names['name'].str.lower()
 # Now we start actually drawing the page.
 st.title('Miles Per Hour')
 st.subheader('Baby names per hour over time')
-babyname = st.text_input('Enter a name', 'Miles')
+# Default to 'Miles' or if babyname=something is in the url use that
+defname = st.query_params.get('babyname', 'Miles')
+babyname = st.text_input('Enter a name', defname)
 
 # Once we have the baby name we can filter the data to just that name
 # and then group by year to get the total count for each year.
