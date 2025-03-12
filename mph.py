@@ -22,7 +22,7 @@ babyname = st.text_input('Enter a name', defname)
 # We can then divide by the number of hours in a year to get the count per hour.
 yourname = baby_names[baby_names['name'] == babyname.lower()]
 yourname = yourname.groupby(['year', 'name']).sum('count').reset_index()
-yourname['name_per_hour'] = yourname['count'] / (25 * 365)
+yourname['name_per_hour'] = yourname['count'] / (24 * 365)
 
 # Finally, we can use Altair to draw a line chart of the data. Streamlit has
 # a built in st.line_chart() that's nice and smple but it doesn't support
